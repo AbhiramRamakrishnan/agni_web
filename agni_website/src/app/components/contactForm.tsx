@@ -110,7 +110,6 @@ function AboutCompanyCard() {
 
 // Main Page Component
 export default function GetInTouch() {
-  const bgRef = useRef(null);
   return (
     <>
       {/* 📨 Contact Section */}
