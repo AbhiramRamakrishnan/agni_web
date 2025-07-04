@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import MusicBTN from './music_button'
 
 const dropdownVariants = {
   initial: { opacity: 0, scaleY: 0 },
