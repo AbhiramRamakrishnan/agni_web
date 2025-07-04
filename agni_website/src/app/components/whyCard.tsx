@@ -480,6 +480,8 @@ const cardsData: CardData[] = [
   }
 ];
 
+const cubicBezierFn = (t: number) => t; // fallback Easing function
+
 const variants = {
   enter: (direction: number) => ({
     rotateY: direction > 0 ? 90 : -90,
@@ -494,7 +496,7 @@ const variants = {
     z: 0,
     transition: {
       duration: 0.8,
-      ease: 'cubic-bezier(0.25,0.46,0.45,0.94)' // FIXED: use string for ease
+      ease: cubicBezierFn // <-- Use a function for type compatibility
     }
   },
   exit: (direction: number) => ({
@@ -504,7 +506,7 @@ const variants = {
     z: -200,
     transition: {
       duration: 0.8,
-      ease: 'cubic-bezier(0.25,0.46,0.45,0.94)' // FIXED: use string for ease
+      ease: cubicBezierFn // <-- Use a function for type compatibility
     }
   })
 };
