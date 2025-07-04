@@ -1,6 +1,5 @@
 import React from 'react'
 import VerticalCarouselCard from './VerticalCarouselCard'
-import { div } from 'framer-motion/client'
 import SplitText from './splitText'
 import ScrollReveal from './ScrollReveal'
 const Benefits = () => {
