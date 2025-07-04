@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGNI Loader</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+      }
+
+      .loader {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .absolute {
+        position: absolute;
+        visibility: hidden;
+      }
+
+      .inline-block {
+        display: inline-block;
+      }
+
+      .w-2 {
+        width: 8px;
+      }
+
+      /* Enhanced Animation classes */
+      .dash {
+        stroke-dasharray: 360;
+        stroke-dashoffset: 360;
+        animation: dash 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+      }
+
+      .spin {
+        stroke-dasharray: 360;
+        stroke-dashoffset: 360;
+        animation: spin 4s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        transform-origin: center;
+      }
+
+      /* Letter-specific animations */
+      .letter-a .dash {
+        animation: dashPulse 3s ease-in-out infinite;
+      }
+
+      .letter-g .spin {
+        animation: spinBounce 4s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+      }
+
+      .letter-n .dash {
+        animation: dashWave 3.5s ease-in-out infinite;
+      }
+
+      .letter-i .dash {
+        animation: dashFlicker 2.5s ease-in-out infinite;
+      }
+
+      @keyframes dash {
+        0%,
+        100% {
+          stroke-dashoffset: 360;
+          opacity: 0.8;
+        }
+        50% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+      }
+
+      @keyframes dashPulse {
+        0%,
+        100% {
+          stroke-dashoffset: 360;
+          opacity: 0.6;
+          transform: scale(1);
+        }
+        50% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+          transform: scale(1.05);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+          stroke-dashoffset: 360;
+          opacity: 0.7;
+        }
+        50% {
+          opacity: 1;
+          stroke-dashoffset: 180;
+        }
+        100% {
+          transform: rotate(360deg);
+          stroke-dashoffset: 0;
+          opacity: 0.7;
+        }
+      }
+
+      @keyframes spinBounce {
+        0% {
+          transform: rotate(0deg) scale(1);
+          stroke-dashoffset: 360;
+          opacity: 0.7;
+        }
+        25% {
+          transform: rotate(90deg) scale(1.1);
+          opacity: 0.9;
+        }
+        50% {
+          transform: rotate(180deg) scale(1);
+          stroke-dashoffset: 180;
+          opacity: 1;
+        }
+        75% {
+          transform: rotate(270deg) scale(1.1);
+          opacity: 0.9;
+        }
+        100% {
+          transform: rotate(360deg) scale(1);
+          stroke-dashoffset: 0;
+          opacity: 0.7;
+        }
+      }
+
+      @keyframes dashWave {
+        0%,
+        100% {
+          stroke-dashoffset: 360;
+          opacity: 0.8;
+          filter: hue-rotate(0deg);
+        }
+        33% {
+          stroke-dashoffset: 240;
+          opacity: 0.9;
+          filter: hue-rotate(60deg);
+        }
+        66% {
+          stroke-dashoffset: 120;
+          opacity: 1;
+          filter: hue-rotate(120deg);
+        }
+        100% {
+          stroke-dashoffset: 0;
+          opacity: 0.8;
+          filter: hue-rotate(180deg);
+        }
+      }
+
+      @keyframes dashFlicker {
+        0%,
+        100% {
+          stroke-dashoffset: 360;
+          opacity: 0.6;
+        }
+        20% {
+          stroke-dashoffset: 280;
+          opacity: 1;
+        }
+        40% {
+          stroke-dashoffset: 200;
+          opacity: 0.8;
+        }
+        60% {
+          stroke-dashoffset: 120;
+          opacity: 1;
+        }
+        80% {
+          stroke-dashoffset: 40;
+          opacity: 0.9;
+        }
+        100% {
+          stroke-dashoffset: 0;
+          opacity: 0.6;
+        }
+      }
+
+      /* Staggered animation delays for smoother flow */
+      .letter-a {
+        animation-delay: 0s;
+      }
+      .letter-g {
+        animation-delay: 0.3s;
+      }
+      .letter-n {
+        animation-delay: 0.6s;
+      }
+      .letter-i {
+        animation-delay: 0.9s;
+      }
+
+      /* Hover effects */
+      .loader:hover .letter-a .dash {
+        animation-duration: 1.5s;
+      }
+
+      .loader:hover .letter-g .spin {
+        animation-duration: 2s;
+      }
+
+      .loader:hover .letter-n .dash {
+        animation-duration: 2s;
+      }
+
+      .loader:hover .letter-i .dash {
+        animation-duration: 1.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader">
+      <svg height="0" width="0" viewBox="0 0 64 64" class="absolute">
+        <defs class="s-xJBuHA073rTt" xmlns="http://www.w3.org/2000/svg">
+          <linearGradient
+            class="s-xJBuHA073rTt"
+            gradientUnits="userSpaceOnUse"
+            y2="2"
+            x2="0"
+            y1="62"
+            x1="0"
+            id="b"
+          >
+            <stop class="s-xJBuHA073rTt" stop-color="#973BED"></stop>
+            <stop class="s-xJBuHA073rTt" stop-color="#007CFF" offset="1"></stop>
+          </linearGradient>
+          <linearGradient
+            class="s-xJBuHA073rTt"
+            gradientUnits="userSpaceOnUse"
+            y2="0"
+            x2="0"
+            y1="64"
+            x1="0"
+            id="c"
+          >
+            <stop class="s-xJBuHA073rTt" stop-color="#FFC800"></stop>
+            <stop class="s-xJBuHA073rTt" stop-color="#F0F" offset="1"></stop>
+            <animateTransform
+              repeatCount="indefinite"
+              keySplines=".25,0,.75,1;.25,0,.75,1;.25,0,.75,1;.25,0,.75,1"
+              keyTimes="0; 0.25; 0.5; 0.75; 1"
+              dur="2s"
+              values="0 32 32;-90 32 32;-180 32 32;-270 32 32;-360 32 32"
+              type="rotate"
+              attributeName="gradientTransform"
+            ></animateTransform>
+          </linearGradient>
+          <linearGradient
+            class="s-xJBuHA073rTt"
+            gradientUnits="userSpaceOnUse"
+            y2="2"
+            x2="0"
+            y1="62"
+            x1="0"
+            id="d"
+          >
+            <stop class="s-xJBuHA073rTt" stop-color="#00E0ED"></stop>
+            <stop class="s-xJBuHA073rTt" stop-color="#00DA72" offset="1"></stop>
+          </linearGradient>
+          <linearGradient
+            class="s-xJBuHA073rTt"
+            gradientUnits="userSpaceOnUse"
+            y2="2"
+            x2="0"
+            y1="62"
+            x1="0"
+            id="e"
+          >
+            <stop class="s-xJBuHA073rTt" stop-color="#FF6B6B"></stop>
+            <stop class="s-xJBuHA073rTt" stop-color="#FFE66D" offset="1"></stop>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <!-- Letter A -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 64 64"
+        height="64"
+        width="64"
+        class="inline-block letter-a"
+      >
+        <path
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="8"
+          stroke="url(#b)"
+          d="M 12 56 L 20 32 L 32 8 L 44 32 L 52 56 M 20 40 L 44 40"
+          class="dash"
+          id="a"
+          pathLength="360"
+        ></path>
+      </svg>
+
+      <!-- Letter G -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 64 64"
+        height="64"
+        width="64"
+        class="inline-block letter-g"
+      >
+        <path
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="8"
+          stroke="url(#c)"
+          d="M 48 20 C 48 12 40 8 32 8 C 20 8 12 16 12 32 C 12 48 20 56 32 56 C 40 56 48 52 48 44 L 48 36 L 36 36"
+          class="dash"
+          id="g"
+          pathLength="360"
+        ></path>
+      </svg>
+
+      <div class="w-2"></div>
+
+      <!-- Letter N -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 64 64"
+        height="64"
+        width="64"
+        class="inline-block letter-n"
+      >
+        <path
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="8"
+          stroke="url(#d)"
+          d="M 12 56 L 12 8 L 52 56 L 52 8"
+          class="dash"
+          id="n"
+          pathLength="360"
+        ></path>
+      </svg>
+
+      <!-- Letter I -->
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 64 64"
+        height="64"
+        width="64"
+        class="inline-block letter-i"
+      >
+        <path
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="8"
+          stroke="url(#e)"
+          d="M 20 8 L 44 8 M 32 8 L 32 56 M 20 56 L 44 56"
+          class="dash"
+          id="i"
+          pathLength="360"
+        ></path>
+      </svg>
+    </div>
+  </body>
+</html>
