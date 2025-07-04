@@ -104,7 +104,7 @@ function App() {
           </h2>
           {/* Smaller description text */}
           <p className="text-gray-600 leading-relaxed text-xs sm:text-sm md:text-base">
-            AGNI is more than a machine—it's a promise. A shield for farmers, a voice for the voiceless, and a tribute to those who feed us. Built with purpose, it protects what truly matters—life, land, and legacy.
+            AGNI is more than a machine—it is a promise. A shield for farmers, a voice for the voiceless, and a tribute to those who feed us. Built with purpose, it protects what truly matters—life, land, and legacy.
           </p>
           
           {/* Tech specs indicators */}
