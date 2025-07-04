@@ -114,7 +114,6 @@ const Navbar = () => {
             />
           </Link>
           <div className='flex gap-12 items-center w-auto'>
-            <MusicBTN />
             
             {/* Desktop Nav */}
             <div className="hidden md:flex space-x-6">
