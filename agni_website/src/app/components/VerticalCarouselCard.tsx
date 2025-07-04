@@ -848,7 +848,7 @@ const VerticalCarousel: React.FC<CarouselProps> = ({ cards, autoRotateInterval =
   const [cardInteracting, setCardInteracting] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const autoRotateRef = useRef<NodeJS.Timeout>();
+  const autoRotateRef = useRef<NodeJS.Timeout>(null);
   const lastScrollTime = useRef<number>(0);
   const scrollVelocity = useRef<number>(0);
 
