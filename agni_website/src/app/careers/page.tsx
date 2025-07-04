@@ -2,9 +2,7 @@ import React from 'react'
 import { ArrowRight } from "lucide-react";
 import Link from 'next/link';
 import Navbar from '../components/navbar_otherPages'
-import HeroSoon from '../components/coming_soon'
 import Ballpit from '../components/ballpitSoonPages'
-import { div } from 'framer-motion/client'
 
 const page = () => {
   return (
