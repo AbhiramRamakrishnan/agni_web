@@ -9,7 +9,7 @@ export default function SmartFluidSplashButton() {
   const [isHovering, setIsHovering] = useState(false);
   const [isCenter, setIsCenter] = useState(false);
   const buttonRef = useRef<HTMLAnchorElement>(null);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(null);
 
   // Smooth splash following animation
   useEffect(() => {
