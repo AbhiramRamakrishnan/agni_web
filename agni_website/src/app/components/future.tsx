@@ -4,7 +4,6 @@ import React from 'react'
 import SplitText from './splitText';
 import ScrollReveal from './ScrollReveal';
 import FutureCard from "./future_card";
-import { Bot } from 'lucide-react';
 
 
 const Future = () => {
