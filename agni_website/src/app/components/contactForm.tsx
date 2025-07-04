@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Mail, Phone, Send, Handshake, BriefcaseBusiness } from "lucide-react";
+import { Mail, Phone, Send, Handshake } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
