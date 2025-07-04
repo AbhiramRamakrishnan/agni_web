@@ -1,3 +1,88 @@
+// /* eslint-disable @typescript-eslint/no-unused-vars */
+// /* eslint-disable @typescript-eslint/no-explicit-any */
+
+// import React, { useState, useEffect, useRef } from 'react';
+// import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
+// import { ChevronLeft, ChevronRight, Trophy, Crown, Cpu, ShieldCheck, Smartphone, ShoppingCart, Briefcase, Globe } from 'lucide-react';
+// import { cn } from './utils';
+
+// interface CardData {
+//   id: number;
+//   title: string;
+//   description: string;
+//   icon: React.ComponentType<any>;
+//   bgColor: string;
+//   textColor: string;
+// }
+
+// const cardsData: CardData[] = [
+//   {
+//     id: 1,
+//     title: "First of Its Kind",
+//     description: "No drones. No gimmicks. AGNI is the first self-defending farm unit in history.",
+//     icon: Trophy,
+//     bgColor: "#0f9952",
+//     textColor: "white"
+//   },
+//   {
+//     id: 2,
+//     title: "Monopoly Machine",
+//     description: "Zero competitors. Patentable tech stack. Mini subscription empire.",
+//     icon: Crown,
+//     bgColor: "#2e7377",
+//     textColor: "white"
+//   },
+//   {
+//     id: 3,
+//     title: "Predictive AI System",
+//     description: "Works day and night, rain or shine — no labor, no guesswork, less power.",
+//     icon: Cpu,
+//     bgColor: "#0f9952",
+//     textColor: "white"
+//   },
+//   {
+//     id: 4,
+//     title: "Multi-Threat Killer",
+//     description: "Neutralizes locusts, pests, wild animals, fungi & disease — no chemicals.",
+//     icon: ShieldCheck,
+//     bgColor: "#2e7377",
+//     textColor: "white"
+//   },
+//   {
+//     id: 5,
+//     title: "Farmer SuperApp Ecosystem",
+//     description: "E-commerce. Upgrades. Buyers. Alerts. Subsidies — all in one tap.",
+//     icon: Smartphone,
+//     bgColor: "#0f9952",
+//     textColor: "white"
+//   },
+//   {
+//     id: 6,
+//     title: "Agri E-Commerce Hub",
+//     description: "Farmers get tools, sensors, and sell produce — like Amazon for farming.",
+//     icon: ShoppingCart,
+//     bgColor: "#2e7377",
+//     textColor: "white"
+//   },
+//   {
+//     id: 7,
+//     title: "Rural Business Builder",
+//     description: "Empowers farmers as entrepreneurs — sell, earn, access micro-loans.",
+//     icon: Briefcase,
+//     bgColor: "#0f9952",
+//     textColor: "white"
+//   },
+//   {
+//     id: 8,
+//     title: "Built for Bharat. Built for World",
+//     description: "Modular, rugged, subsidy-ready. Expandable to Asia, Africa & beyond.",
+//     icon: Globe,
+//     bgColor: "#2e7377",
+//     textColor: "white"
+//   }
+// ];
+
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
@@ -81,6 +166,36 @@ const cardsData: CardData[] = [
     textColor: "white"
   }
 ];
+
+const variants = {
+  enter: (direction: number) => ({
+    rotateY: direction > 0 ? 90 : -90,
+    opacity: 0,
+    scale: 0.8,
+    z: -200
+  }),
+  center: {
+    rotateY: 0,
+    opacity: 1,
+    scale: 1,
+    z: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number]
+    }
+  },
+  exit: (direction: number) => ({
+    rotateY: direction < 0 ? 90 : -90,
+    opacity: 0,
+    scale: 0.8,
+    z: -200,
+    transition: {
+      duration: 0.8,
+      ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number]
+    }
+  })
+};
+
 
 export default function ThreeDCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
