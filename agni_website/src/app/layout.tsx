@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+
 import type { Metadata } from "next";
 import { Sora, Plus_Jakarta_Sans, Poppins, Bebas_Neue } from "next/font/google";
 import "./globals.css";
