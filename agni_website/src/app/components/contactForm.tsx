@@ -3,7 +3,7 @@
 
 import { Mail, Phone, Send, Handshake } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import { FaRegBuilding } from 'react-icons/fa';
