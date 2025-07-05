@@ -22,9 +22,9 @@ import dynamic from 'next/dynamic';
 export default function Home() {
   return (
     <>
-      <Head>
+{/*       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
+      </Head> */}
       <Navbar />
       <Hero />
       <WhyThisMatters />
